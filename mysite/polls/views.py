@@ -54,3 +54,19 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
+
+
+# Begining of Django Rest Framework code
+#
+from rest_framework import viewsets
+from .serializers import QuestionSerializer
+
+
+class QuestionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows questions to be viewed or edited.
+    """
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+# End of DRF code
+#
