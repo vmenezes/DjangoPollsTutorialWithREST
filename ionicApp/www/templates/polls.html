@@ -1,0 +1,11 @@
+<ion-view view-title="Polls">
+  <ion-content>
+
+      <ion-list>
+          <ion-item ng-repeat="poll in polls" href="#/app/poll/{{polls.indexOf(poll)}}">
+            {{ poll.question_text }}
+          </ion-item>
+      </ion-list>
+
+  </ion-content>
+</ion-view>
