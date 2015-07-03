@@ -59,7 +59,7 @@ def vote(request, question_id):
 # Begining of Django Rest Framework code
 #
 from rest_framework import viewsets
-from .serializers import QuestionSerializer
+from .serializers import QuestionSerializer, ChoiceSerializer
 
 
 class QuestionViewSet(viewsets.ModelViewSet):
