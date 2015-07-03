@@ -2,7 +2,7 @@
   <ion-content>
 
       <ion-list>
-          <ion-item ng-repeat="poll in polls" href="#/app/poll/{{polls.indexOf(poll)}}">
+          <ion-item ng-repeat="poll in polls" href="#/app/poll/{{ poll.id }}">
             {{ poll.question_text }}
           </ion-item>
       </ion-list>
