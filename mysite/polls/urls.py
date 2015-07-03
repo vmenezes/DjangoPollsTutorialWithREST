@@ -7,6 +7,7 @@ from rest_framework import routers # line added for DRF
 
 router = routers.DefaultRouter() # line added for DRF
 router.register(r'questions', views.QuestionViewSet) #line added for DRF
+router.register(r'choices', views.ChoiceViewSet) #line added for DRF
 
 
 urlpatterns = [

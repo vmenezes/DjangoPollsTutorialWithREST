@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
 
-from .models import Question
+from .models import Question, Choice
 
 
 class IndexView(generic.ListView):
@@ -68,5 +68,13 @@ class QuestionViewSet(viewsets.ModelViewSet):
     """
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+
+class ChoiceViewSet(viewsets.ModelViewSet):
+    """
+    View used by Choices API
+    """
+    queryset = Choice.objects.all()
+    serializer_class = ChoiceSerializer
+    
 # End of DRF code
 #
