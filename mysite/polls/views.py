@@ -62,7 +62,7 @@ from rest_framework import viewsets
 from .serializers import QuestionSerializer, ChoiceSerializer
 
 
-class QuestionViewSet(viewsets.ModelViewSet):
+class QuestionViewSet(viewsets.ModelViewSet ):
     """
     API endpoint that allows questions to be viewed or edited.
     """
