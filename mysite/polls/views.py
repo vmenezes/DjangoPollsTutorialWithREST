@@ -58,7 +58,7 @@ def vote(request, question_id):
 
 # Begining of Django Rest Framework code
 #
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from .serializers import QuestionSerializer, ChoiceSerializer
 
 
@@ -75,6 +75,8 @@ class ChoiceViewSet(viewsets.ModelViewSet):
     """
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_fields = ('votes', 'question_id')
     
 # End of DRF code
 #
