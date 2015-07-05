@@ -67,10 +67,16 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PollCtrl', function($scope, $stateParams, $http) {
-    $http.get('http://127.0.0.1:8000/polls/api/questions/').
+    $http.get('http://127.0.0.1:8000/polls/api/choices/?question_id=' + $stateParams.pollId).
         success(function(data, status){
-            $scope.polls = data;
-            $scope.poll = $scope.polls[$stateParams.pollId];
+//            console.log(data);
+//            for (i=0; i < data.length; i++){
+//                console.log(data[i].choice_text);
+//            }
+            $scope.choices = data;
+//            $scope.polls = data;
+//            $scope.poll = $scope.polls[$stateParams.pollId];
+            
         }).
         error(function(data, status){
             console.log(status);

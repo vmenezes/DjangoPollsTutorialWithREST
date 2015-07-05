@@ -1,15 +1,12 @@
 <ion-view view-title="Poll's Details">
     <ion-content>
 
-        <div class="card">
-            <div class="item item-divider">
-                <h1>{{ poll.question_text | uppercase }}</h1>
-            </div>
-            <div class="item item-text-wrap">
-                
-            </div>
-            <div class="item item-divider">
-                <p>Timestamp: {{ poll.pub_date }}</p>
+        <div class="list list-inset">
+            <div class="item" ng-repeat="choice in choices">
+                    {{ choice.choice_text }}
+                    <span class="item-note">
+                        {{ choice.votes }}
+                    </span>
             </div>
         </div>
         
