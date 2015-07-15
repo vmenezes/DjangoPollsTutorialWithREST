@@ -56,18 +56,29 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PollsCtrl', function($scope, $stateParams, $http) {
-    $http.get('http://127.0.0.1:8000/polls/api/questions/').
+    var config = {headers: {
+            'Authorization': 'Token 3f7ea2dbe3c2cab9b55346200d7ef4796f53c731',
+        }
+    };
+    
+    $http.get('http://127.0.0.1:8000/polls/api/questions/', config).
         success(function(data, status){
             $scope.polls = data;
         }).
         error(function(data, status){
+            console.log('ERROR LOADING CHOICES LIST')
             console.log(status);
             console.log(data);
         });
 })
 
 .controller('PollCtrl', function($scope, $stateParams, $http) {
-    $http.get('http://127.0.0.1:8000/polls/api/choices/?question_id=' + $stateParams.pollId).
+    var config = {headers: {
+            'Authorization': 'Token 3f7ea2dbe3c2cab9b55346200d7ef4796f53c731',
+        }
+    };
+    
+    $http.get('http://127.0.0.1:8000/polls/api/choices/?question_id=' + $stateParams.pollId, config).
         success(function(data, status){
 //            console.log(data);
 //            for (i=0; i < data.length; i++){
@@ -79,6 +90,7 @@ angular.module('starter.controllers', [])
             
         }).
         error(function(data, status){
+            console.log('ERROR LOADING CHOICE DETAILS')
             console.log(status);
             console.log(data);
         });
