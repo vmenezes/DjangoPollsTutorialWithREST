@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'polls',
     'rest_framework', # line added for DRF
     'corsheaders', # line added for DRF
+    'rest_framework.authtoken', # for DRF Token authentication
 )
 
 MIDDLEWARE_CLASSES = (
@@ -113,10 +114,15 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+#        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
 #        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-        'rest_framework.permissions.AllowAny',
-    ],
+#        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
+    ),
 }
 
 CORS_ORIGIN_ALLOW_ALL = True

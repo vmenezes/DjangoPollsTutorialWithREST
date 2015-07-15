@@ -60,6 +60,8 @@ def vote(request, question_id):
 #
 from rest_framework import viewsets, filters
 from .serializers import QuestionSerializer, ChoiceSerializer
+from rest_framework.authtoken.models import Token # to get/create tokens
+from django.contrib.auth.models import User # to get/create tokens
 
 
 class QuestionViewSet(viewsets.ModelViewSet ):
@@ -77,6 +79,14 @@ class ChoiceViewSet(viewsets.ModelViewSet):
     serializer_class = ChoiceSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = ('votes', 'question_id')
+
+def developer(request):
+    if request.user.is_authenticated():
+        token = Token.objects.get_or_create(user=User.objects.get(username='admin'))
+        data = token
+    else:
+        data = 'You must be logged in to use this page.'
+    return render(request, 'polls/developer.html', {'data': data})
     
 # End of DRF code
 #

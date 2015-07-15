@@ -21,7 +21,8 @@ urlpatterns = [
     url(r'^(?P<question_id>[0-9]+)/results/$', views.results, name='results'),
     # ex: /polls/5/vote/
     url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
-
+    # ex: /polls/developers
+    url(r'^developer/$', views.developer, name='developer'),
 ]
 
 
@@ -34,6 +35,9 @@ urlpatterns = [
 #
 # RETRIEVE
 # $ curl -H 'Accept: application/json; indent=4' http://127.0.0.1:8000/polls/api/questions/
+# 
+# RETRIEVE WITH TOKEN
+# $ curl -X GET -H 'Accept: application/json; indent=4' -H 'Authorization: Token 3f7ea2dbe3c2cab9b55346200d7ef4796f53c731' http://127.0.0.1:8000/pols/api/questions/
 #
 # UPDATE
 # $ curl -X PUT -d "question_text=ble ble ble&pub_date=2015-06-25T21:52:17Z" http://127.0.0.1:8000/polls/api/questions/6/
