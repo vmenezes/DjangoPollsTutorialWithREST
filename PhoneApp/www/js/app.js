@@ -11,6 +11,9 @@ $(function(){
         type: "GET",
         url: questionsUrl,
         dataType: "json",
+        headers: {
+            "Authorization": "Token 3f7ea2dbe3c2cab9b55346200d7ef4796f53c731"
+        },
         error: function(e){
             $('div#one p#error').html('ERROR - ' + e.status + ' ' + e.statusText);
             console.log('ERROR');
