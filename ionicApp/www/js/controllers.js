@@ -57,11 +57,11 @@ angular.module('starter.controllers', [])
 
 .controller('PollsCtrl', function($scope, $stateParams, $http) {
     var config = {headers: {
-            'Authorization': 'Token 3f7ea2dbe3c2cab9b55346200d7ef4796f53c731',
+            'Authorization': 'Token 25aa874daf19e9ef088ac9133eb65923ad51ff99 ',
         }
     };
-    
-    $http.get('http://127.0.0.1:8000/polls/api/questions/', config).
+//curl -X GET -H 'Accept: application/json; indent=4' -H 'Authorization: Token 25aa874daf19e9ef088ac9133eb65923ad51ff99 ' http://enhanced-polls.herokuapp.com/api/questions/
+    $http.get('http://enhanced-polls.herokuapp.com/api/questions/', config).
         success(function(data, status){
             $scope.polls = data;
         }).
@@ -74,11 +74,11 @@ angular.module('starter.controllers', [])
 
 .controller('PollCtrl', function($scope, $stateParams, $http) {
     var config = {headers: {
-            'Authorization': 'Token 3f7ea2dbe3c2cab9b55346200d7ef4796f53c731',
+            'Authorization': 'Token 25aa874daf19e9ef088ac9133eb65923ad51ff99 ',
         }
     };
     
-    $http.get('http://127.0.0.1:8000/polls/api/choices/?question_id=' + $stateParams.pollId, config).
+    $http.get('http://enhanced-polls.herokuapp.com/api/choices/?question_id=' + $stateParams.pollId, config).
         success(function(data, status){
 //            console.log(data);
 //            for (i=0; i < data.length; i++){

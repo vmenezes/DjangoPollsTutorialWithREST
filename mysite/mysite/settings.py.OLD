@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import platform # to detect wheter running local or heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django_admin_bootstrapped',# added for bootstrap look at admin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -88,17 +86,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-
-if platform.node() == 'Victors-MacBook-Pro.local':
-    #Running on my laptop, nothing to be done.
-    pass
-else:
-    """ It is running on heroku and should load "production.py" config file
-    with heroku postgres and private keys. This file is on gitignore
-    because of the private keys.
-    """
-    from production import *
 
 
 # Internationalization
